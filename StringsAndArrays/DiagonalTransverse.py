@@ -3,6 +3,8 @@
 
 # solution from leetcode: Approach 1: Diagonal Iteration and Reversal
 
+# Space complexity: O(min(N, M))
+# Time complexity: O(N.M)
 
 
 
@@ -76,4 +78,71 @@ class Solution:
                 result.extend(intermediate[::-1])
             else:
                 result.extend(intermediate)
+        return result
+
+
+
+# Approach 2: Using Simulation
+
+# Space complexity: O(1)
+# Time complexity: O(N.M)
+
+# Simulation pseudo code for  finding the head of the next diagonal
+
+# tail = [i, j]
+# if direction == up, then {
+#     if [i, j +1] is within bounds, then{
+#         next_head  = [ i, j + 1]
+#     }
+#     else{
+#         next_head =[ i+1, j]
+#     }
+# }
+# else{
+#     if [i+1, j] is within bounds, then{
+#         next_head = [i +1, j]
+#     }
+#     else{
+#         next_head = [i, j+1]
+#     }
+# }
+
+# Solution
+
+class Solution:
+    def findDiagonalOrder(self,  matrix:List[List[int]]) -> List[int]:
+        if not matrix or not matrix[0]:
+            return []
+
+        N, M = len(matrix), len(matrix[0])
+
+        row, column = 0, 0
+
+        direction = 1
+
+        result = []
+
+        while row < N and column < M:
+
+            result.append(matrix[row][column])
+
+            new_row = row + (-1 if direction ==1 else 1)
+
+            new_column = column + (1 if direction == 1 else -1)
+
+            if new_row < 0 or new_row == N or new_column < 0 or new_column == M:
+                if direction:
+                    row += (column == M-1)
+                    column += (column < M-1)
+
+                else:
+                    column += (row == N -1)
+                    row += (row < N - 1)
+
+                direction = 1 - direction
+
+            else:
+                row = new_row
+                column = new_column
+
         return result
