@@ -12,3 +12,16 @@ class Solution:
         Do not return anything, modify s in-place instead.
         """
         return s.reverse()
+
+
+# Using two pointer approach
+class Solution:
+    def reverseString(self, s: List[str]) -> None:
+        """
+        Do not return anything, modify s in-place instead.
+        """
+        start = 0
+        end = len(s) - 1
+        while start <= end:
+            s[start], s[end] = s[end], s[start]
+            start, end = start + 1, end - 1
