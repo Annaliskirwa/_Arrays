@@ -4,3 +4,17 @@
 class Solution:
     def arrayPairSum(self, nums: List[int]) -> int:
         return sum([num for num in sorted(nums)[::2]])
+
+
+
+# First approach, more time and space complexity
+class Solution:
+    def arrayPairSum(self, nums: List[int]) -> int:
+        nums.sort()
+        
+        thesum = []
+        
+        for i in range(0, len(nums), 2):
+            thesum += [nums[i]]
+            
+        return sum(thesum)
