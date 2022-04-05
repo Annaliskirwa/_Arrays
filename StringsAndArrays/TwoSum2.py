@@ -1,0 +1,12 @@
+# Given a 1-indexed array of integers numbers that is already sorted in non-decreasing order, find two numbers such that they add up to a specific target number. Let these two numbers be numbers[index1] and numbers[index2] where 1 <= index1 < index2 <= numbers.length.
+
+# Two sum 1
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        a = list()
+        for i in range(len(nums)):
+            x = target - nums[i]
+            if x in a:
+                return [a.index(x),i]
+            else:
+                a.append(nums[i])
