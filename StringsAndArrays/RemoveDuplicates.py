@@ -16,4 +16,16 @@ class Solution:
                 nums[index] =  nums[i]
                 index += 1
         return length
-        
+
+
+# my approach, failed some test cases
+# more space and time
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        if len(nums) == 0:
+            return 0
+        for i in range (0, len(nums)):
+            if (nums[i] == nums[i+1]):
+                nums.remove(nums[i])
+            return len(nums)
+                
