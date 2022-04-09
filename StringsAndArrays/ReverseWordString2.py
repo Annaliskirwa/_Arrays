@@ -5,3 +5,16 @@ class Solution:
     def reverseWords(self, s: str) -> str:
         
         return (' '.join([i[::-1] for i in s.split()]))
+
+
+
+# using temp
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        # return (' '.join([i[::-1] for i in s.split()]))
+        temp = s.split(" ")
+        result = ""
+        for word in temp:
+            word = word[::-1]
+            result += word + " "
+        return result[:-1]
