@@ -18,3 +18,14 @@ class Solution:
             word = word[::-1]
             result += word + " "
         return result[:-1]
+    
+    
+    
+ #using a temporary array and join and split
+ class Solution:
+	 def reverseWords(self, s: str) -> str:
+            reversed_words=[]
+            for word in s.split():
+               reversed_words.append(word[::-1])
+         
+            return " ".join(reversed_words)
