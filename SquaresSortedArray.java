@@ -23,3 +23,15 @@ class Solution {
         return arr;
     }
 }
+
+
+//an easier way without converting to an array lsit would be:
+class Solution {
+public int[] sortedSquares(int[] nums) {
+for(int i = 0; i<nums.length; i++){
+nums[i] *= nums[i];
+}
+Arrays.sort(nums);
+return nums;
+}
+}
