@@ -27,3 +27,24 @@ class Solution {
         
     }
 }
+
+
+//Issue, array not sorted
+/**
+Compare from 0 and 1 moving forward
+
+*/
+
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        int lengths = 0;
+        for (int i = 1; i < nums.length; i++){
+            if(nums[i] != nums[lengths]){
+                lengths++;
+                nums[lengths] = nums[i];
+            }
+        }
+        return lengths + 1;
+        
+    }
+}
