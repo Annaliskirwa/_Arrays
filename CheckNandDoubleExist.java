@@ -31,4 +31,24 @@ class Solution {
     }
 }
 
+//failed some test cases 
+class Solution {
+    public boolean checkIfExist(int[] arr) {
+        if (arr == null){
+            return false;
+        }
+        for(int i = 0; i < arr.length; i++){
+            int target = arr[i]*2;
+            for(int j = 0; j< arr.length; j++){
+                if(i!=j && target == arr[j]){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}
+
+
+
 
