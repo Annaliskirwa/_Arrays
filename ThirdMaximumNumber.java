@@ -13,9 +13,18 @@ class Solution {
         int k = 0;
         Arrays.sort(nums);
         ArrayList<Integer> nums1 = new ArrayList<>();
-        for (int i = 0; i<lengthss; i++){
-            nums1.add(nums[i]);
+        if(lengthss < 3){
+            return nums[nums.length-1];
         }
+        for (int i = 0; i<lengthss; i++){
+            if(nums1.contains(nums[i])){
+                continue;
+            }
+            else{
+                nums1.add(nums[i]);
+            }
+        }
+        
         if(nums1.size()>=3)
         {
             return nums1.get(nums1.size()-3);
