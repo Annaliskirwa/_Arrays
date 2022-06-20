@@ -18,7 +18,7 @@ class Solution {
         for(int m: nums){
             nums1.add(m);
         }
-        for(int i = 1; i< nums.length; i++){
+        for(int i = 1; i<= nums.length; i++){
             if(!nums1.contains(i)){
                 nums2.add(i);
             }
